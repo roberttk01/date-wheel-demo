@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Catherine &amp; Kyle's Date Wheel (Demo)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="tb-row">
+    <h1>Catherine &amp; Kyle's Date Wheel</h1>
+    <span class="demo-tag" title="Demo copy. Changes stay on this phone.">Demo</span>
+  </div>
+  <div class="legend">
+    <span><i class="dot C"></i>Catherine</span>
+    <span><i class="dot K"></i>Kyle</span>
+    <span><i class="dot B"></i>Both <em class="x2">x2 slices</em></span>
+  </div>
+  <p class="stats" id="stats"></p>
+</header>
+
+<main class="wrap">
+  <section class="col">
+    <div class="panel">
+      <p class="eyebrow">Who spins this week</p>
+      <div id="dice"></div>
+    </div>
+    <div class="panel wheel-panel">
+      <div class="stage">
+        <div class="pointer"></div>
+        <canvas id="wheel" aria-label="Date wheel"></canvas>
+        <button class="hub" id="spin" type="button">SPIN</button>
+      </div>
+      <p class="caption" id="caption"></p>
+      <label class="limit">Limited time
+        <select id="limit">
+          <option value="0">Any length</option>
+          <option value="1">1 hour or less</option>
+          <option value="2">2 hours or less</option>
+          <option value="3">3 hours or less</option>
+          <option value="4">4 hours or less</option>
+        </select>
+      </label>
+    </div>
+    <div id="result" aria-live="polite"></div>
+  </section>
+
+  <section class="col">
+    <div>
+      <p class="eyebrow" id="week-label">This weekend</p>
+      <div id="week"></div>
+    </div>
+    <div class="panel">
+      <h2>Scoreboard</h2>
+      <div id="score"></div>
+    </div>
+    <details class="panel fold">
+      <summary><h2 id="ideas-h">Ideas</h2></summary>
+      <div id="ideas"></div>
+    </details>
+    <details class="panel fold">
+      <summary><h2>Add an idea</h2></summary>
+      <form id="add" class="add">
+        <label>Idea<input id="add-title" maxlength="80" required placeholder="Sunset picnic at the park"></label>
+        <label>Whose idea
+          <select id="add-who"><option value="C">Catherine</option><option value="K">Kyle</option><option value="B">Both</option></select>
+        </label>
+        <label>How long
+          <select id="add-hours"><option value="">Not set</option><option value="1">1 hour</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option><option value="8">All day</option></select>
+        </label>
+        <button class="btn primary" type="submit">Add to the wheel</button>
+      </form>
+    </details>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><strong>Demo copy.</strong> This is a snapshot for showing family. Spins, rolls and new ideas stay on this phone only and never reach the real wheel.</p>
+  <button class="btn sm danger" id="reset" type="button">Reset demo</button>
+</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script src="data.js"></script>
+<script src="wheel.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
